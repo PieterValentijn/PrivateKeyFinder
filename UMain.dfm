@@ -66,11 +66,20 @@ object fmMain: TfmMain
       AlignWithMargins = True
       Caption = 'Words'
       ImageIndex = 1
+      object cxLabel12: TLabel
+        Left = 0
+        Top = 0
+        Width = 859
+        Height = 12
+        Align = alTop
+        Caption = 'Path'
+        ExplicitWidth = 28
+      end
       object GridPanel1: TGridPanel
         Left = 0
-        Top = 36
+        Top = 32
         Width = 859
-        Height = 378
+        Height = 382
         Align = alClient
         ColumnCollection = <
           item
@@ -412,7 +421,7 @@ object fmMain: TfmMain
         TabOrder = 0
         DesignSize = (
           859
-          378)
+          382)
         object cb1: TComboBox
           Left = 21
           Top = 3
@@ -421,8 +430,6 @@ object fmMain: TfmMain
           Style = csDropDownList
           Anchors = []
           TabOrder = 0
-          ExplicitLeft = 22
-          ExplicitTop = 1
         end
         object cb2: TComboBox
           Left = 136
@@ -847,7 +854,7 @@ object fmMain: TfmMain
           Caption = '24'
           ExplicitHeight = 12
         end
-        object bNextInput39: TcxButton
+        object bNextInput39: TButton
           Left = 131
           Top = 193
           Width = 100
@@ -864,7 +871,6 @@ object fmMain: TfmMain
           Height = 20
           Anchors = []
           TabOrder = 25
-          ExplicitLeft = 346
         end
         object Label4: TLabel
           Left = 268
@@ -884,7 +890,6 @@ object fmMain: TfmMain
           Caption = 'To Clipboard'
           TabOrder = 26
           OnClick = bCopywordsToClipoardClick
-          ExplicitWidth = 121
         end
         object cbSugestedWords: TComboBox
           Left = 346
@@ -894,8 +899,6 @@ object fmMain: TfmMain
           Style = csDropDownList
           Anchors = []
           TabOrder = 27
-          ExplicitLeft = 347
-          ExplicitTop = 173
         end
         object Label8: TLabel
           AlignWithMargins = True
@@ -905,24 +908,17 @@ object fmMain: TfmMain
           Height = 18
           Align = alLeft
           Caption = 'Sugested words'
-          ExplicitLeft = 346
-          ExplicitTop = 145
           ExplicitHeight = 12
         end
       end
-      object cxBIP32Path: TcxTextEdit
+      object cxBIP32Path: TEdit
         Left = 0
-        Top = 16
+        Top = 12
+        Width = 859
+        Height = 20
         Align = alTop
         TabOrder = 1
         Text = 'm/44H/60H/0H/0'
-        Width = 859
-      end
-      object cxLabel12: TcxLabel
-        Left = 0
-        Top = 0
-        Align = alTop
-        Caption = 'Path'
       end
     end
     object tsKeys: TTabSheet
