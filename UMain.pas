@@ -98,12 +98,14 @@ type
     mKeys: TMemo;
     ProgressBar1: TProgressBar;
     cbSugestedWords: TComboBox;
-    Label8: TLabel;
+    Lwordsuggest: TLabel;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure bNextInput39Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure pcMainChanging(Sender: TObject; var AllowChange: Boolean);
     procedure bCopywordsToClipoardClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     isLoading: Boolean;
     Wordlist: TStringlist;
@@ -169,6 +171,22 @@ begin
  pcMain.ActivePage := tsKeys;
 end;
 
+procedure TfmMain.Button1Click(Sender: TObject);
+begin
+ var p := web3.bip39.create(TWords.TwentyFour);
+ var result := p.ToString(p.English);
+ var alist := TStringList.Create;
+ try
+   alist.Text := StringReplace(result,' ',#13#10,[rfReplaceAll]);
+   for var i := 0 to alist.Count -1 do
+     begin
+       WordsControlArray[i].ItemIndex := Wordlist.IndexOf(alist[i]);
+     end;
+ finally
+   alist.Free;
+ end;
+end;
+
 procedure TfmMain.DoWordSuggestion;
 begin
 
@@ -205,8 +223,11 @@ begin
     if cbSugestedWords.Items.Count > 0 then
       cbSugestedWords.ItemIndex := 0;
     cbSugestedWords.Items.EndUpdate;
+    cbSugestedWords.Visible := True;
+    Lwordsuggest.Visible := True;
     ProgressBar1.Position := 0;
   end;
+
 end;
 
 procedure TfmMain.FinishPath;
@@ -241,6 +262,8 @@ begin
   pcMain.ActivePageIndex := 0;
   Wordlist := TMnemonic.ListEnglish;
   SetLength(WordsControlArray, 24);
+  cbSugestedWords.Visible := False;
+  Lwordsuggest.Visible := False;
 end;
 
 procedure TfmMain.FormDestroy(Sender: TObject);

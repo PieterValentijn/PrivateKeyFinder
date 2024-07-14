@@ -69,11 +69,10 @@ object fmMain: TfmMain
       object cxLabel12: TLabel
         Left = 0
         Top = 0
-        Width = 859
+        Width = 28
         Height = 12
         Align = alTop
         Caption = 'Path'
-        ExplicitWidth = 28
       end
       object GridPanel1: TGridPanel
         Left = 0
@@ -378,8 +377,13 @@ object fmMain: TfmMain
           end
           item
             Column = 6
-            Control = Label8
+            Control = Lwordsuggest
             Row = 6
+          end
+          item
+            Column = 6
+            Control = Button1
+            Row = 1
           end>
         RowCollection = <
           item
@@ -900,7 +904,7 @@ object fmMain: TfmMain
           Anchors = []
           TabOrder = 27
         end
-        object Label8: TLabel
+        object Lwordsuggest: TLabel
           AlignWithMargins = True
           Left = 349
           Top = 148
@@ -909,6 +913,19 @@ object fmMain: TfmMain
           Align = alLeft
           Caption = 'Sugested words'
           ExplicitHeight = 12
+        end
+        object Button1: TButton
+          Left = 346
+          Top = 24
+          Width = 145
+          Height = 25
+          Align = alBottom
+          Caption = 'Generate'
+          TabOrder = 28
+          OnClick = Button1Click
+          ExplicitLeft = 381
+          ExplicitTop = 25
+          ExplicitWidth = 75
         end
       end
       object cxBIP32Path: TEdit
