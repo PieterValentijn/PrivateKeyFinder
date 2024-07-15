@@ -385,6 +385,11 @@ object fmMain: TfmMain
             Column = 6
             Control = Button1
             Row = 1
+          end
+          item
+            Column = 6
+            Control = cbShowWords
+            Row = 2
           end>
         RowCollection = <
           item
@@ -429,12 +434,13 @@ object fmMain: TfmMain
           382)
         object cb1: TComboBox
           Left = 21
-          Top = 3
+          Top = 2
           Width = 90
-          Height = 20
-          Style = csDropDownList
+          Height = 22
+          Style = csOwnerDrawFixed
           Anchors = []
           TabOrder = 0
+          ExplicitTop = 3
         end
         object cb2: TComboBox
           Left = 136
@@ -875,6 +881,7 @@ object fmMain: TfmMain
           Width = 121
           Height = 20
           Anchors = []
+          PasswordChar = '*'
           TabOrder = 25
         end
         object Label4: TLabel
@@ -924,6 +931,18 @@ object fmMain: TfmMain
           Caption = 'Generate'
           TabOrder = 28
           OnClick = Button1Click
+        end
+        object cbShowWords: TCheckBox
+          Left = 370
+          Top = 52
+          Width = 97
+          Height = 17
+          Anchors = []
+          Caption = 'Show data'
+          TabOrder = 29
+          OnClick = cbShowWordsClick
+          ExplicitLeft = 416
+          ExplicitTop = 64
         end
       end
       object cxBIP32Path: TEdit

@@ -34,36 +34,38 @@ uses
   Vcl.Menus, cxButtons, web3.bip39, Vcl.ExtCtrls;
 
 type
+
+
   TfmMain = class(TForm)
     pcMain: TPageControl;
     tsAbout: TTabSheet;
     mabout: TMemo;
     tsWords: TTabSheet;
     GridPanel1: TGridPanel;
-    cb1: TComboBox;
-    cb2: TComboBox;
-    cb3: TComboBox;
-    cb4: TComboBox;
-    cb5: TComboBox;
-    cb6: TComboBox;
-    cb7: TComboBox;
-    cb8: TComboBox;
-    cb9: TComboBox;
-    cb10: TComboBox;
-    cb11: TComboBox;
-    cb12: TComboBox;
-    cb13: TComboBox;
-    cb14: TComboBox;
-    cb15: TComboBox;
-    cb16: TComboBox;
-    cb17: TComboBox;
-    cb18: TComboBox;
-    cb19: TComboBox;
-    cb20: TComboBox;
-    cb21: TComboBox;
-    cb22: TComboBox;
-    cb23: TComboBox;
-    cb24: TComboBox;
+    cb1: TCombobox;
+    cb2: TCombobox;
+    cb3: TCombobox;
+    cb4: TCombobox;
+    cb5: TCombobox;
+    cb6: TCombobox;
+    cb7: TCombobox;
+    cb8: TCombobox;
+    cb9: TCombobox;
+    cb10: TCombobox;
+    cb11: TCombobox;
+    cb12: TCombobox;
+    cb13: TCombobox;
+    cb14: TCombobox;
+    cb15: TCombobox;
+    cb16: TCombobox;
+    cb17: TCombobox;
+    cb18: TCombobox;
+    cb19: TCombobox;
+    cb20: TCombobox;
+    cb21: TCombobox;
+    cb22: TCombobox;
+    cb23: TCombobox;
+    cb24: TCombobox;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -100,12 +102,16 @@ type
     cbSugestedWords: TComboBox;
     Lwordsuggest: TLabel;
     Button1: TButton;
+    cbShowWords: TCheckBox;
     procedure FormCreate(Sender: TObject);
+    procedure MyDrawItemEvent(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState) ;
+
     procedure bNextInput39Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure pcMainChanging(Sender: TObject; var AllowChange: Boolean);
     procedure bCopywordsToMemoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure cbShowWordsClick(Sender: TObject);
   private
     isLoading: Boolean;
     Wordlist: TStringlist;
@@ -113,7 +119,7 @@ type
     procedure FinishPath;
   public
     { Public declarations }
-    WordsControlArray: array of TComboBox;
+    WordsControlArray: array of TCombobox;
     procedure SetControlsToIntArray(aArray: array of integer);
     procedure SetIntArrayToControls(aArray: Array of integer);
   end;
@@ -186,6 +192,16 @@ begin
  finally
    alist.Free;
  end;
+end;
+
+procedure TfmMain.cbShowWordsClick(Sender: TObject);
+begin
+  if cbShowWords.Checked then
+    ePassword.PasswordChar := #0
+    else
+    ePassword.PasswordChar := '*';
+      for var x := 0 to 23 do
+        WordsControlArray[x].Repaint;
 end;
 
 procedure TfmMain.DoWordSuggestion;
@@ -272,6 +288,22 @@ begin
   FreeAndNil(Wordlist);
 end;
 
+procedure TfmMain.MyDrawItemEvent(Control: TWinControl; Index: Integer;
+  Rect: TRect; State: TOwnerDrawState);
+begin
+   TCombobox(Control).Canvas.FillRect(Rect);
+    if (Index >= 0) And (TCombobox(Control).Focused or cbShowWords.Checked) then
+    begin
+      var s: string := TCombobox(Control).Items[Index];
+      if UseRightToLeftReading then
+        Rect.Left := Rect.Right - TCombobox(Control).Canvas.TextWidth(s) - ScaleValue(2);
+      if odComboBoxEdit in State then
+        TCombobox(Control).Canvas.TextOut(Rect.Left + 1, Rect.Top + 1, s) //Visual state of the text in the edit control
+      else
+        TCombobox(Control).Canvas.TextOut(Rect.Left + 2, Rect.Top, s); //Visual state of the text(items) in the deployed list
+    end;
+end;
+
 procedure TfmMain.pcMainChanging(Sender: TObject; var AllowChange: Boolean);
 begin
   if cb1.Items.Text <> '' then
@@ -282,9 +314,11 @@ begin
     ProgressBar1.Position := 0;
     for var x := 1 to 24 do
     begin
-      WordsControlArray[x - 1] := (FindComponent('cb' + x.ToString) as TComboBox);
+      WordsControlArray[x - 1] := (FindComponent('cb' + x.ToString) as TCombobox);
       WordsControlArray[x - 1].Items.Assign(Wordlist);
       WordsControlArray[x - 1].ItemIndex := 0;
+      WordsControlArray[x - 1].OnDrawItem := MyDrawItemEvent;
+      WordsControlArray[x - 1].Style := csOwnerDrawFixed;
       ProgressBar1.Position := x;
     end;
     ProgressBar1.Position := 0;
@@ -424,5 +458,6 @@ begin
     end;
   end;
 end;
+
 
 end.
