@@ -69,10 +69,11 @@ object fmMain: TfmMain
       object cxLabel12: TLabel
         Left = 0
         Top = 0
-        Width = 28
+        Width = 859
         Height = 12
         Align = alTop
         Caption = 'Path'
+        ExplicitWidth = 28
       end
       object GridPanel1: TGridPanel
         Left = 0
@@ -367,7 +368,7 @@ object fmMain: TfmMain
           end
           item
             Column = 6
-            Control = bCopywordsToClipoard
+            Control = bCopywordsToMemo
             Row = 0
           end
           item
@@ -885,15 +886,15 @@ object fmMain: TfmMain
           Caption = 'Password'
           ExplicitLeft = 292
         end
-        object bCopywordsToClipoard: TButton
+        object bCopywordsToMemo: TButton
           Left = 346
           Top = 0
           Width = 145
           Height = 25
           Align = alBottom
-          Caption = 'To Clipboard'
+          Caption = 'Words to memo'
           TabOrder = 26
-          OnClick = bCopywordsToClipoardClick
+          OnClick = bCopywordsToMemoClick
         end
         object cbSugestedWords: TComboBox
           Left = 346
@@ -923,9 +924,6 @@ object fmMain: TfmMain
           Caption = 'Generate'
           TabOrder = 28
           OnClick = Button1Click
-          ExplicitLeft = 381
-          ExplicitTop = 25
-          ExplicitWidth = 75
         end
       end
       object cxBIP32Path: TEdit

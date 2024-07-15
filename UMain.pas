@@ -91,7 +91,7 @@ type
     bNextInput39: TButton;
     ePassword: TEdit;
     Label4: TLabel;
-    bCopywordsToClipoard: TButton;
+    bCopywordsToMemo: TButton;
     cxBIP32Path: TEdit;
     cxLabel12: TLabel;
     tsKeys: TTabSheet;
@@ -104,7 +104,7 @@ type
     procedure bNextInput39Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure pcMainChanging(Sender: TObject; var AllowChange: Boolean);
-    procedure bCopywordsToClipoardClick(Sender: TObject);
+    procedure bCopywordsToMemoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
     isLoading: Boolean;
@@ -134,16 +134,17 @@ implementation
 {$R *.dfm}
 
 uses
-  ClpEncoders, web3.eth.types, web3, web3.crypto, web3.utils, web3.eth.crypto, Clipbrd, web3.bip44;
+  ClpEncoders, web3.eth.types, web3, web3.crypto, web3.utils, web3.eth.crypto, web3.bip44;
 
-procedure TfmMain.bCopywordsToClipoardClick(Sender: TObject);
+procedure TfmMain.bCopywordsToMemoClick(Sender: TObject);
 var
   aOut: String;
 begin
   aOut := '';
   for var x := 0 to 23 do
-    aOut := Trim(aOut + ' ' + WordsControlArray[x].Text);
-  Clipboard.AsText := aOut;
+    aOut := Trim(aOut + #13#10 + WordsControlArray[x].Text);
+  mkeys.Text := aOut;
+  pcMain.ActivePage := tsKeys ;
 end;
 
 procedure TfmMain.bNextInput39Click(Sender: TObject);
