@@ -188,10 +188,10 @@ begin
 end;
 
 procedure TfmMain.DoWordSuggestion;
-begin
 
   var
     Intarray: array of integer;
+begin
   var
     TheByteArray: TBytes;
     // check words if the way is input from BIP 39 words
