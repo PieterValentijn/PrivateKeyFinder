@@ -153,6 +153,51 @@ begin
   pcMain.ActivePage := tsKeys ;
 end;
 
+procedure TfmMain.DoWordSuggestion;
+
+  var
+    Intarray: array of integer;
+begin
+  var
+    TheByteArray: TBytes;
+    // check words if the way is input from BIP 39 words
+  SetLength(Intarray, 24);
+  ProgressBar1.Max := Wordlist.Count;
+  ProgressBar1.Position := 1;
+
+  cbSugestedWords.Items.BeginUpdate;
+  try
+    for var x := 0 to 22 do
+      Intarray[x] := WordsControlArray[x].ItemIndex;
+    cbSugestedWords.Items.clear;
+    for var words := 0 to Wordlist.Count - 1 do
+    begin
+      ProgressBar1.Position := ProgressBar1.Position + 1;
+      Intarray[23] := words;
+      SetLength(TheByteArray, 0);
+      SetLength(TheByteArray, 33);
+
+      TMnemonic.MoveFrom11BitTo8Bit(TheByteArray, Intarray);
+      var
+      Checkbyte := TheByteArray[High(TheByteArray)];
+      SetLength(TheByteArray, 32);
+      var
+      checksum := sha256(TheByteArray)[0];
+      if (Checkbyte = checksum) then
+       begin
+        cbSugestedWords.Items.Add(Wordlist[words]);
+       end;
+    end;
+  finally
+    if cbSugestedWords.Items.Count > 0 then
+      cbSugestedWords.ItemIndex := 0;
+    cbSugestedWords.Items.EndUpdate;
+    cbSugestedWords.Visible := True;
+    Lwordsuggest.Visible := True;
+    ProgressBar1.Position := 0;
+  end;
+
+end;
 procedure TfmMain.bNextInput39Click(Sender: TObject);
 var
   Intarray: array of integer;
@@ -204,48 +249,7 @@ begin
         WordsControlArray[x].Repaint;
 end;
 
-procedure TfmMain.DoWordSuggestion;
 
-  var
-    Intarray: array of integer;
-begin
-  var
-    TheByteArray: TBytes;
-    // check words if the way is input from BIP 39 words
-  SetLength(Intarray, 24);
-  ProgressBar1.Max := Wordlist.Count;
-  ProgressBar1.Position := 1;
-
-  cbSugestedWords.Items.BeginUpdate;
-  try
-    cbSugestedWords.Items.clear;
-    for var words := 0 to Wordlist.Count - 1 do
-    begin
-      ProgressBar1.Position := ProgressBar1.Position + 1;
-      for var x := 0 to 22 do
-        Intarray[x] := WordsControlArray[x].ItemIndex;
-      Intarray[23] := words;
-      SetLength(TheByteArray, 33);
-
-      TMnemonic.MoveFrom11BitTo8Bit(TheByteArray, Intarray);
-      var
-      Checkbyte := TheByteArray[High(TheByteArray)];
-      SetLength(TheByteArray, 32);
-      var
-      checksum := sha256(TheByteArray)[0];
-      if (Checkbyte = checksum) then
-        cbSugestedWords.Items.Add(Wordlist[words]);
-    end;
-  finally
-    if cbSugestedWords.Items.Count > 0 then
-      cbSugestedWords.ItemIndex := 0;
-    cbSugestedWords.Items.EndUpdate;
-    cbSugestedWords.Visible := True;
-    Lwordsuggest.Visible := True;
-    ProgressBar1.Position := 0;
-  end;
-
-end;
 
 procedure TfmMain.FinishPath;
 var

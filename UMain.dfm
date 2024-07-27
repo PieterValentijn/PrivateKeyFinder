@@ -440,7 +440,6 @@ object fmMain: TfmMain
           Style = csOwnerDrawFixed
           Anchors = []
           TabOrder = 0
-          ExplicitTop = 3
         end
         object cb2: TComboBox
           Left = 136
@@ -941,8 +940,6 @@ object fmMain: TfmMain
           Caption = 'Show data'
           TabOrder = 29
           OnClick = cbShowWordsClick
-          ExplicitLeft = 416
-          ExplicitTop = 64
         end
       end
       object cxBIP32Path: TEdit
@@ -952,7 +949,7 @@ object fmMain: TfmMain
         Height = 20
         Align = alTop
         TabOrder = 1
-        Text = 'm/44H/60H/0H/0'
+        Text = 'm/44H/60H/0H/0/0'
       end
     end
     object tsKeys: TTabSheet
