@@ -112,6 +112,7 @@ type
     procedure bCopywordsToMemoClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure cbShowWordsClick(Sender: TObject);
+    procedure cbSugestedWordsChange(Sender: TObject);
   private
     isLoading: Boolean;
     Wordlist: TStringlist;
@@ -185,7 +186,7 @@ begin
       checksum := sha256(TheByteArray)[0];
       if (Checkbyte = checksum) then
        begin
-        cbSugestedWords.Items.Add(Wordlist[words]);
+        cbSugestedWords.Items.AddObject(Wordlist[words],TObject(words));
        end;
     end;
   finally
@@ -250,6 +251,14 @@ begin
 end;
 
 
+
+procedure TfmMain.cbSugestedWordsChange(Sender: TObject);
+begin
+ if cbSugestedWords.ItemIndex <> -1 then
+  begin
+    cb24.ItemIndex := Integer(cbSugestedWords.Items.Objects[cbSugestedWords.ItemIndex]);
+  end;
+end;
 
 procedure TfmMain.FinishPath;
 var

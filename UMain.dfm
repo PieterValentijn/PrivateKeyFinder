@@ -437,6 +437,8 @@ object fmMain: TfmMain
           Top = 2
           Width = 90
           Height = 22
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csOwnerDrawFixed
           Anchors = []
           TabOrder = 0
@@ -446,6 +448,8 @@ object fmMain: TfmMain
           Top = 3
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 1
@@ -455,6 +459,8 @@ object fmMain: TfmMain
           Top = 3
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 2
@@ -464,6 +470,8 @@ object fmMain: TfmMain
           Top = 27
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 3
@@ -473,6 +481,8 @@ object fmMain: TfmMain
           Top = 27
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 4
@@ -482,6 +492,8 @@ object fmMain: TfmMain
           Top = 27
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 5
@@ -491,6 +503,8 @@ object fmMain: TfmMain
           Top = 51
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 6
@@ -500,6 +514,8 @@ object fmMain: TfmMain
           Top = 51
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 7
@@ -509,6 +525,8 @@ object fmMain: TfmMain
           Top = 51
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 8
@@ -518,6 +536,8 @@ object fmMain: TfmMain
           Top = 75
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 9
@@ -527,6 +547,8 @@ object fmMain: TfmMain
           Top = 75
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 10
@@ -536,6 +558,8 @@ object fmMain: TfmMain
           Top = 75
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 11
@@ -545,6 +569,8 @@ object fmMain: TfmMain
           Top = 99
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 12
@@ -554,6 +580,8 @@ object fmMain: TfmMain
           Top = 99
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 13
@@ -563,6 +591,8 @@ object fmMain: TfmMain
           Top = 99
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 14
@@ -572,6 +602,8 @@ object fmMain: TfmMain
           Top = 123
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 15
@@ -581,6 +613,8 @@ object fmMain: TfmMain
           Top = 123
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 16
@@ -590,6 +624,8 @@ object fmMain: TfmMain
           Top = 123
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 17
@@ -599,6 +635,8 @@ object fmMain: TfmMain
           Top = 147
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 18
@@ -608,6 +646,8 @@ object fmMain: TfmMain
           Top = 147
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 19
@@ -617,6 +657,8 @@ object fmMain: TfmMain
           Top = 147
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 20
@@ -626,6 +668,8 @@ object fmMain: TfmMain
           Top = 171
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 21
@@ -635,6 +679,8 @@ object fmMain: TfmMain
           Top = 171
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 22
@@ -644,6 +690,8 @@ object fmMain: TfmMain
           Top = 171
           Width = 90
           Height = 20
+          AutoCompleteDelay = 1000
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 23
@@ -907,9 +955,11 @@ object fmMain: TfmMain
           Top = 171
           Width = 145
           Height = 20
+          AutoDropDownWidth = True
           Style = csDropDownList
           Anchors = []
           TabOrder = 27
+          OnChange = cbSugestedWordsChange
         end
         object Lwordsuggest: TLabel
           AlignWithMargins = True
